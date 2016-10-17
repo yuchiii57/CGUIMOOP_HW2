@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 /*
- * ID: TODO: please add student ID here
- * Name: TODO: please add student name here
+ * ID: b0444232
+ * Name: 謝雨錡
  */
 public class HW2 {
 
@@ -15,6 +15,7 @@ public class HW2 {
 		int nDeck=Integer.parseInt(testn);
 		Deck deck=new Deck(nDeck);
 		//TODO: please check your output, make sure that you print all cards on your screen
+		System.out.println(nDeck);
 		deck.printDeck();
 		
 		if(isAllCardsCorrect(deck.getAllCards(),nDeck)){
@@ -60,13 +61,18 @@ public class HW2 {
 
 }
 /*
- * Description: TODO: please add description here
+ * Description: class表示52排擺進ArrayList中排列
  */
 class Deck{
 	private ArrayList<Card> cards;
 	//TODO: Please implement the constructor
 	public Deck(int nDeck){
 		cards=new ArrayList<Card>();
+		  for(int i=0;i<nDeck;i++){    //幾副牌
+			   for(int j=1;j<=4;j++){  //4個花色
+			    for(int k=1;k<=13;k++){ //13張牌
+			     Card card=new Card(j,k);
+			     cards.add(card);
 		//1 Deck have 52 cards, https://en.wikipedia.org/wiki/Poker
 		//Hint: Use new Card(x,y) and 3 for loops to add card into deck
 		//Sample code start
@@ -77,6 +83,8 @@ class Deck{
 	}	
 	//TODO: Please implement the method to print all cards on screen
 	public void printDeck(){
+		for(Card d:cards);
+		System.out.println("/n");
 		//Hint: print all items in ArrayList<Card> cards, 
 		//please implement and reuse printCard method in Card class
 
@@ -86,7 +94,7 @@ class Deck{
 	}
 }
 /*
- * Description: TODO: please add description here
+ * Description: TODO: 把deck放進ㄋclass card裡執行
  */
 class Card{
 	private int suit; //Definition: 1~4, Clubs=1, Diamonds=2, Hearts=3, Spades=4
@@ -97,6 +105,7 @@ class Card{
 	}	
 	//TODO: 1. Please implement the printCard method
 	public void printCard(){
+		 System.out.print("("+getSuit()+","+(getRank()==13?getRank()+") \n":getRank()+") "));
 		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
 
 	}
